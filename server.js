@@ -1,4 +1,13 @@
 //  OpenShift sample Node application
+
+var log4js = require('log4js');
+log4js.configure({
+  appenders: [
+    { type: 'console' },
+    { type: 'file', filename: 'logs/cheese.log', category: 'cheese' }
+  ]
+});
+
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
