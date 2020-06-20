@@ -107,6 +107,7 @@ var initDb = function(callback) {
     dbDetails.type = 'MongoDB';
 
     console.log('Connected to MongoDB at: %s', mongoURL);
+    alert('Connected to MongoDB at:');
     alert('Connected to MongoDB at: %s', mongoURL);  
   });
 };
@@ -124,7 +125,8 @@ app.get('/', function (req, res) {
     col.count(function(err, count){
       if (err) {
         console.log('Error running count. Message:\n'+err);
-        alert('Error running count. Message:\n'+err);  
+        alert("error-----------------1");
+          alert('Error running count. Message:\n'+err);  
           
       }
       res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
@@ -152,17 +154,20 @@ app.get('/pagecount', function (req, res) {
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
+  alert("error-----------------2");
   alert(err.stack);  
   res.status(500).send('Something bad happened!');
 });
 
 initDb(function(err){
   console.log('Error connecting to Mongo. Message:\n'+err);
+    alert("error-----------------3");
   alert('Error connecting to Mongo. Message:\n'+err);  
 });
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
-alert('Server running on http://%s:%s', ip, port);
-
+alert("The End");
+alert("Server running on http://"+ip+port);
+alert("The End");
 module.exports = app ;
