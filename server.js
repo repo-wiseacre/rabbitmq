@@ -1,5 +1,5 @@
 //  OpenShift sample Node application
-Var alert = require('alert');
+Var alert = require('alert-node');
 var log4js = require('log4js');
 log4js.configure({
     "appenders": {
