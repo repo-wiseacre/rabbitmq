@@ -31,6 +31,9 @@ log4js.configure({
     }
   });
 
+const logger = log4js.getLogger('cheese');
+console.log = (msg) => logger.trace(msg);
+
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
