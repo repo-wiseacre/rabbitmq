@@ -53,6 +53,7 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 if (mongoURL == null) {
   var mongoHost, mongoPort, mongoDatabase, mongoPassword, mongoUser;
   // If using plane old env vars via service discovery
+    alert("when mongourl is null");
   if (process.env.DATABASE_SERVICE_NAME) {
     var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
     mongoHost = process.env[mongoServiceName + '_SERVICE_HOST'];
@@ -60,16 +61,21 @@ if (mongoURL == null) {
     mongoDatabase = process.env[mongoServiceName + '_DATABASE'];
     mongoPassword = process.env[mongoServiceName + '_PASSWORD'];
     mongoUser = process.env[mongoServiceName + '_USER'];
+      
+      alert("when mongourl is null===============2");
 
   // If using env vars from secret from service binding  
   } else if (process.env.database_name) {
     mongoDatabase = process.env.database_name;
     mongoPassword = process.env.password;
     mongoUser = process.env.username;
+      alert("when mongourl is null===============3");
     var mongoUriParts = process.env.uri && process.env.uri.split("//");
     if (mongoUriParts.length == 2) {
       mongoUriParts = mongoUriParts[1].split(":");
+        alert("when mongourl is null=============4");
       if (mongoUriParts && mongoUriParts.length == 2) {
+          alert("when mongourl is null===========5");
         mongoHost = mongoUriParts[0];
         mongoPort = mongoUriParts[1];
       }
@@ -77,24 +83,28 @@ if (mongoURL == null) {
   }
 
   if (mongoHost && mongoPort && mongoDatabase) {
+      
+      alert("when mongourl is not null==================1");
     mongoURLLabel = mongoURL = 'mongodb://';
     if (mongoUser && mongoPassword) {
       mongoURL += mongoUser + ':' + mongoPassword + '@';
+        alert("when mongourl is not null==================2");
     }
     // Provide UI label that excludes user id and pw
     mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
     mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
+      alert("when mongourl is not null==================3");
   }
 }
 var db = null,
     dbDetails = new Object();
-
+alert("db details==================1");
 var initDb = function(callback) {
   if (mongoURL == null) return;
-
+    alert("db details==================2");
   var mongodb = require('mongodb');
   if (mongodb == null) return;
-
+    alert("db details==================3");
   mongodb.connect(mongoURL, function(err, conn) {
     if (err) {
       callback(err);
@@ -120,8 +130,10 @@ app.get('/', function (req, res) {
   }
   if (db) {
     var col = db.collection('counts');
+      alert("db details==================4");
     // Create a document with request IP and current time of request
     col.insert({ip: req.ip, date: Date.now()});
+      alert("db details==================5");
     col.count(function(err, count){
       if (err) {
         console.log('Error running count. Message:\n'+err);
@@ -130,9 +142,11 @@ app.get('/', function (req, res) {
           
       }
       res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
+        alert("db details==================6");
     });
   } else {
     res.render('index.html', { pageCountMessage : null});
+      alert("db details==================7");
   }
 });
 
