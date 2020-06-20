@@ -34,7 +34,7 @@ alert("hi.....")
 const logger = log4js.getLogger('app');
 alert(logger);
 console.log = (msg) => logger.trace(msg);
-
+console.log("hi........ 1234567890..........")
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
