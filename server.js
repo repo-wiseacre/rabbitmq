@@ -1,4 +1,6 @@
 //  OpenShift sample Node application
+var face = require('os');
+
 var alert = require('alert-node');
 var log4js = require('log4js');
 log4js.configure({
@@ -31,7 +33,7 @@ log4js.configure({
     }
   });
 alert("hi.....")
-
+alert("ip================="+face.address);
 alert("hi........ 1234567890.....1.....");
 
 console.log("hi........ 1234567890..........");
