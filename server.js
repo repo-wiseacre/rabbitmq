@@ -120,6 +120,7 @@ var initDb = function(callback) {
 
     db = conn;
     dbDetails.databaseName = db.databaseName;
+    mongoURLLabel = mongoURL+'/'+process.env.database_name;
     alert("mongoURLLabel========================"+mongoURLLabel);
     dbDetails.url = mongoURLLabel;
     dbDetails.type = 'MongoDB';
