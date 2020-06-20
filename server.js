@@ -30,8 +30,9 @@ log4js.configure({
       "http": { "appenders": [ "access"], "level": "DEBUG" }
     }
   });
-
+alert("hi.....")
 const logger = log4js.getLogger('app');
+alert(logger);
 console.log = (msg) => logger.trace(msg);
 
 var express = require('express'),
