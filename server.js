@@ -70,6 +70,7 @@ if (mongoURL == null) {
 
   // If using env vars from secret from service binding  
   } else if (process.env.database_name) {
+    alert("database_name======================"+process.env.database_name)
     mongoDatabase = process.env.database_name;
     mongoPassword = process.env.password;
     mongoUser = process.env.username;
@@ -107,7 +108,7 @@ var db = null,
 alert("db details==================1");
 var initDb = function(callback) {
   if (mongoURL == null) return;
-    alert("db details==================2");
+    alert("db details==================2"+mongoURL);
   var mongodb = require('mongodb');
   if (mongodb == null) return;
     alert("db details==================3");
@@ -119,12 +120,13 @@ var initDb = function(callback) {
 
     db = conn;
     dbDetails.databaseName = db.databaseName;
+    alert("mongoURLLabel========================"+mongoURLLabel);
     dbDetails.url = mongoURLLabel;
     dbDetails.type = 'MongoDB';
 
     console.log('Connected to MongoDB at: %s', mongoURL);
-    alert('Connected to MongoDB at:');
-    alert('Connected to MongoDB at: %s', mongoURL);  
+    alert("Connected to MongoDB at:"+mongoURL);
+    
   });
 };
 
