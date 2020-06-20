@@ -33,11 +33,7 @@ log4js.configure({
 alert("hi.....")
 
 alert("hi........ 1234567890.....1.....");
-const logger = log4js.getLogger('app');
 
-logger.debug("sssssssss")
-alert(logger);
-console.log = (msg) => logger.trace(msg);
 console.log("hi........ 1234567890..........");
 alert("hi........ 1234567890..........");
 var express = require('express'),
