@@ -32,6 +32,7 @@ log4js.configure({
   });
 alert("hi.....")
 const logger = log4js.getLogger('app');
+logger.debug("sssssssss")
 alert(logger);
 console.log = (msg) => logger.trace(msg);
 console.log("hi........ 1234567890..........")
