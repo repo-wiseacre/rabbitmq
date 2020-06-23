@@ -128,17 +128,7 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
     alert("Connected to MongoDB at:"+mongoURL);
     
-  });
-};
-
-app.get('/', function (req, res) {
-  // try to initialize the db on every request if it's not already
-  // initialized.
-  alert("inside app get ============================")
-  if (!db) {
-    initDb(function(err){alert("app get error=========================="+err);});
-  }
-  if (db) {
+      
     var col = db.collection('counts');
       alert("counts======================"+col);
       alert("db details==================4");
@@ -153,13 +143,40 @@ app.get('/', function (req, res) {
         alert("error-----------------1");
           alert('Error running count. Message:\n'+err);  
           
+      }  
+      
+  });
+};
+
+app.get('/', function (req, res) {
+  // try to initialize the db on every request if it's not already
+  // initialized.
+  alert("inside app get ============================")
+  if (!db) {
+    initDb(function(err){alert("app get error=========================="+err);});
+  }
+  if (db) {
+    var col = db.collection('counts');
+      alert("counts======================"+col);
+      alert("db details==================6");
+      alert("ip=========================="+req.ip);
+      
+    // Create a document with request IP and current time of request
+    col.insert({ip: req.ip, date: Date.now()});
+      alert("db details==================7");
+    col.count(function(err, count){
+      if (err) {
+        console.log('Error running count. Message:\n'+err);
+        alert("error-----------------1");
+          alert('Error running count. Message:\n'+err);  
+          
       }
       res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
-        alert("db details==================6");
+        alert("db details==================8");
     });
   } else {
     res.render('index.html', { pageCountMessage : null});
-      alert("db details==================7");
+      alert("db details==================9");
   }
 });
 
