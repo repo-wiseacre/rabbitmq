@@ -119,8 +119,8 @@ var initDb = function(callback) {
     }
 
     db = conn;
-    dbDetails.databaseName = process.env.database_name;
-    mongoURLLabel = mongoURL+'/'+process.env.database_name;
+    dbDetails.databaseName = db.databaseName;
+    
     alert("mongoURLLabel========================"+mongoURLLabel);
     dbDetails.url = mongoURLLabel;
     dbDetails.type = 'MongoDB';
