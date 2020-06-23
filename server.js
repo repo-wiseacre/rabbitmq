@@ -144,7 +144,7 @@ var initDb = function(callback) {
           alert('Error running count. Message:\n'+err);  
           
       }  
-      
+    }
   });
 };
 
