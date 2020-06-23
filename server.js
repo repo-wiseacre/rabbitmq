@@ -132,7 +132,7 @@ var initDb = function(callback) {
     var col = db.collection('counts');
       alert("counts======================"+col);
       alert("db details==================4");
-      alert("ip=========================="+req.ip);
+      alert("ip=========================="+ip);
       
     // Create a document with request IP and current time of request
     col.insert({ip: req.ip, date: Date.now()});
