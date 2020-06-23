@@ -120,7 +120,7 @@ var initDb = function(callback) {
 
     db = conn;
     dbDetails.databaseName = db.databaseName;
-    
+    alert("db details ======================="+dbDetails.databaseName);
     alert("mongoURLLabel========================"+mongoURLLabel);
     dbDetails.url = mongoURLLabel;
     dbDetails.type = 'MongoDB';
@@ -134,8 +134,9 @@ var initDb = function(callback) {
 app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
+  alert("inside app get ============================")
   if (!db) {
-    initDb(function(err){});
+    initDb(function(err){alert("app get error=========================="+err);});
   }
   if (db) {
     var col = db.collection('counts');
