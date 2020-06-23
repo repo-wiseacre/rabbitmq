@@ -135,7 +135,7 @@ var initDb = function(callback) {
       alert("ip=========================="+ip);
       
     // Create a document with request IP and current time of request
-    col.insert({ip: req.ip, date: Date.now()});
+    col.insert({ip: ip, date: Date.now()});
       alert("db details==================5");
     col.count(function(err, count){
       if (err) {
