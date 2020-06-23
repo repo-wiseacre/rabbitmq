@@ -139,7 +139,10 @@ app.get('/', function (req, res) {
   }
   if (db) {
     var col = db.collection('counts');
+      alert("counts======================"+col);
       alert("db details==================4");
+      alert("ip=========================="+req.ip);
+      
     // Create a document with request IP and current time of request
     col.insert({ip: req.ip, date: Date.now()});
       alert("db details==================5");
