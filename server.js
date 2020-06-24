@@ -156,10 +156,15 @@ var initDb = function(callback) {
     });
     
   });
+  if(db){
     
-  var status = db.serverStatus()
-  alert("connections=================="+status.connections);
+    alert("db object exists ===============2 "+db.databaseName);
+  }
+  else{
+    alert("db object not exists ===========2 ");
+  }
   
+ 
 };
 if(db){
     
