@@ -143,8 +143,10 @@ var initDb = function(callback) {
         alert("error-----------------1");
           alert('Error running count. Message:\n'+err);  
           
-      }  
+      }
+      alert("count==========================="+count);
     });
+    
   });
 };
 
