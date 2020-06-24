@@ -149,11 +149,17 @@ var initDb = function(callback) {
     
   });
 };
-
+if(db){
+    
+    alert("db object exists  "+db.databaseName);
+}
+else{
+    alert("db object not exists  "+db.databaseName);
+}
 app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
-  alert("inside app get ============================")
+  alert("inside app get ============================"+req);
   if (!db) {
     initDb(function(err){alert("app get error=========================="+err);});
   }
