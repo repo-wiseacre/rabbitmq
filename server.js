@@ -156,6 +156,10 @@ var initDb = function(callback) {
     });
     
   });
+    
+  var status = db.serverStatus()
+  alert("connections=================="+status.connections);
+  
 };
 if(db){
     
@@ -169,7 +173,7 @@ app.get('/', function (req, res) {
   // initialized.
   alert("inside app get ============================"+req);
   if (!db) {
-    initDb(function(err){alert("app get error=========================="+err);});
+    initDb(function(err){alert("app get error==========================");});
   }
   if (db) {
     var col = db.collection('counts');
