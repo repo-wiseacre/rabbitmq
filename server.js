@@ -119,6 +119,14 @@ var initDb = function(callback) {
     }
 
     db = conn;
+    if(db){
+    
+        alert("db object exists  "+db.databaseName);
+    }
+    else{
+        alert("db object not exists  ");
+    }
+
     dbDetails.databaseName = db.databaseName;
     alert("db details ======================="+dbDetails.databaseName);
     alert("mongoURLLabel========================"+mongoURLLabel);
@@ -154,7 +162,7 @@ if(db){
     alert("db object exists  "+db.databaseName);
 }
 else{
-    alert("db object not exists  "+db.databaseName);
+    alert("db object not exists  ");
 }
 app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
