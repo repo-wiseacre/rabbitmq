@@ -54,7 +54,7 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 alert("port========================================"+port);
 alert("IP========================================"+ip);
 alert("mongoURL========================================"+mongoURL);
-mongoURL = "mongodb://user:password@localhost:27017/guestbook";
+//mongoURL = "mongodb://user:password@localhost:27017/guestbook";
 if (mongoURL == null) {
   var mongoHost, mongoPort, mongoDatabase, mongoPassword, mongoUser;
   // If using plane old env vars via service discovery
