@@ -9,6 +9,8 @@ div {
   position: relative;
   animation: mymove infinite;
   animation-duration: 10s;
+  font-size:1px;
+  text-align:center;
 }
 
 @keyframes mymove {
@@ -16,7 +18,7 @@ div {
   to {top: 0px;width:10px; height:200px;}
   
   from {top: 0px; width:10px; height:200px;}
-  to {top: 0px;width:600px; height:200px;}
+  to {top: 0px;width:600px; height:200px;font-size:20px; text-align:center;}
 }
 
 </style>
@@ -27,7 +29,7 @@ div {
 
 <p>Specify that the animation should complete one cycle in 3 seconds:</p>
 
-<div></div>
+<div>animation</div>
 
 <p><strong>Note:</strong> Always specify the animation-duration property. Otherwise the duration is 0, and the animation will not be played.</p>
 <p><strong>Note:</strong> The animation-duration property is not supported in Internet Explorer 9 and earlier versions.</p>
