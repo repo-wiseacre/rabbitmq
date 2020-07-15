@@ -14,7 +14,8 @@
     "object-assign": "4.1.0",
     "log4js": "6.3.0",
     "alert-node": "3.0.0",
-    "os": "0.1.1"
+    "os": "0.1.1",
+    "amqplib" "0.5.6"
   },
   "engine": {
     "node": "*",
